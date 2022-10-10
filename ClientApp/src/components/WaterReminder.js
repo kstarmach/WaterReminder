@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardBody, CardTitle, CardSubtitle, CardText, Row, Col } from 'reactstrap';
+import React, { useState, useRef, useEffect } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardBody, CardTitle, CardText, Row, Col } from 'reactstrap';
 
 
 const ReminderModal = ({ increase, toggle, modal }) => {
@@ -132,6 +132,12 @@ function WaterReminder(props) {
     };
 
     const time = new Date(timer * 1000).toISOString().substring(14, 19)
+
+    useEffect(() => {
+        if (isRuning) {
+            document.title = time;
+        }
+    })
 
     return (
         <div>
