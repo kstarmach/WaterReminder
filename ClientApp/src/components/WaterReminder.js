@@ -7,7 +7,7 @@ const ReminderModal = ({ increase, toggle, modal }) => {
         <Modal isOpen={modal} toggle={toggle} size="xl" centered>
             <ModalHeader toggle={toggle}>Water Reminder</ModalHeader>
             <ModalBody>
-                <video controls autoPlay loop height="100%" width="100%">
+                <video controls autoPlay loop muted height="100%" width="100%">
                     <source src='media/WaterReminder.mp4' type='video/mp4' />
                 </video>
             </ModalBody>
@@ -87,7 +87,7 @@ const WaterCard = ({ increase, counter }) => {
 }
 
 function WaterReminder(props) {
-    const timeToAlert = 3
+    const timeToAlert = 1200
 
     const [modal, setModal] = useState(false)
     const [counter, setCounter] = useState(1)
@@ -112,7 +112,7 @@ function WaterReminder(props) {
     const handleReset = () => {
         clearInterval(tick.current)
         setIsRuning(false)
-        setTimer(3)
+        setTimer(timeToAlert)
     }
 
     if (timer <= 0) {
@@ -122,8 +122,8 @@ function WaterReminder(props) {
 
     const increase = () => {
         setCounter(counter + 1)
-        handleReset()
         setIsRuning(true)
+        setTimer(timeToAlert)
         setModal(false)
     }
 
@@ -145,7 +145,6 @@ function WaterReminder(props) {
                     <WaterCard increase={increase} counter={counter} />
                 </Col>
             </Row>
-
 
             <ReminderModal
                 increase={increase}
