@@ -1,4 +1,4 @@
-import { Modal, Card, CardBody, CardTitle, CardText, CardSubtitle, ModalHeader, ModalBody, ModalFooter, Row, Col, Button, FormGroup, Label, Input } from 'reactstrap';
+import { CardSubtitle, FormGroup, Label, Input } from 'reactstrap';
 const WeightSetting = ({ handleChange, weight }) => {
     return (
         <>
@@ -9,7 +9,7 @@ const WeightSetting = ({ handleChange, weight }) => {
                 Weight
             </CardSubtitle>
 
-            <FormGroup onChange={handleChange}>
+            <FormGroup >
                 <Label for="exampleRange">
                     {weight} kg
                 </Label>
@@ -17,6 +17,8 @@ const WeightSetting = ({ handleChange, weight }) => {
                     id="exampleRange"
                     name="range"
                     type="range"
+                    value={weight}
+                    onChange={handleChange}
                     min={25}
                     max={150}
                 />

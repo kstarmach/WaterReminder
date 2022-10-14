@@ -10,10 +10,11 @@ const WaterCard = ({ increase, counter, decrease }) => {
     }
 
     return (
-        <Card color="light">
+        <Card className='border-white'>
             <CardBody>
-                <CardTitle tag="h5">
-                    Counter
+                <CardTitle  className=' d-flex justify-content-between '>
+                    <p className='fs-4 fw-bolder'>Water Rate</p>
+                    <p className='text-muted align-self-center '><span className='fw-bold'>1.5 L/</span>2.5 L</p>
                 </CardTitle>
                 <CardText className='fs-1 fw-bolder'>
                     <b>{cups()}</b>

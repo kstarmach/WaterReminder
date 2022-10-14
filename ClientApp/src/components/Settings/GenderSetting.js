@@ -1,5 +1,5 @@
 import { Modal, Card, CardBody, CardTitle, CardText, CardSubtitle, ModalHeader, ModalBody, ModalFooter, Row, Col, Button, FormGroup, Label, Input } from 'reactstrap';
-const GenderSetting = ({ handleChange }) => {
+const GenderSetting = ({ handleChange, gender }) => {
     return (
         <>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -8,14 +8,15 @@ const GenderSetting = ({ handleChange }) => {
             <FormGroup
                 row
                 tag="fieldset"
-                onChange={handleChange}
             >
                 <Col sm={3}>
-                    <FormGroup check>
+                    <FormGroup >
                         <Input
-                            name="radio2"
+                            checked={gender == 1}
+                            name="gender"
                             type="radio"
                             value={1}
+                            onChange={handleChange}
                         />
                         {' '}
                         <Label check>
@@ -24,12 +25,13 @@ const GenderSetting = ({ handleChange }) => {
                     </FormGroup>
                 </Col>
                 <Col sm={3}>
-                    <FormGroup check>
+                    <FormGroup >
                         <Input
-                            name="radio2"
+                            checked={gender == 0}
+                            name="gender"
                             type="radio"
                             value={0}
-                            defaultChecked
+                            onChange={handleChange}
                         />
                         {' '}
                         <Label check>

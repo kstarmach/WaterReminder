@@ -1,5 +1,5 @@
-import { Modal, Card, CardBody, CardTitle, CardText, CardSubtitle, ModalHeader, ModalBody, ModalFooter, Row, Col, Button, FormGroup, Label, Input } from 'reactstrap';
-const SizeSetting = ({ handleChange }) => {
+import { CardSubtitle, Col, FormGroup, Label, Input } from 'reactstrap';
+const SizeSetting = ({ handleChange, size }) => {
     return (
         <>
             <CardSubtitle
@@ -11,14 +11,15 @@ const SizeSetting = ({ handleChange }) => {
             <FormGroup
                 row
                 tag="fieldset"
-                onChange={handleChange}
             >
                 <Col sm={3}>
                     <FormGroup check>
                         <Input
+                            checked={size == 0.150}
                             name="radio3"
                             type="radio"
                             value={0.150}
+                            onChange={handleChange}
                         />
                         {' '}
                         <Label check>
@@ -29,9 +30,11 @@ const SizeSetting = ({ handleChange }) => {
                 <Col sm={3}>
                     <FormGroup check>
                         <Input
+                            checked={size == 0.200}
                             name="radio3"
                             type="radio"
                             value={0.200}
+                            onChange={handleChange}
                         />
                         {' '}
                         <Label check>
@@ -42,10 +45,11 @@ const SizeSetting = ({ handleChange }) => {
                 <Col sm={3}>
                     <FormGroup check>
                         <Input
+                            checked={size == 0.250}
                             name="radio3"
                             type="radio"
-                            defaultChecked
                             value={0.250}
+                            onChange={handleChange}
                         />
                         {' '}
                         <Label check>
@@ -56,9 +60,11 @@ const SizeSetting = ({ handleChange }) => {
                 <Col sm={3}>
                     <FormGroup check>
                         <Input
+                            checked={size == 0.300}
                             name="radio3"
                             type="radio"
                             value={0.300}
+                            onChange={handleChange}
                         />
                         {' '}
                         <Label check>

@@ -1,5 +1,5 @@
-import { Modal, Card, CardBody, CardTitle, CardText, CardSubtitle, ModalHeader, ModalBody, ModalFooter, Row, Col, Button, FormGroup, Label, Input } from 'reactstrap';
-const ActivitySetting = ({ handleChange }) => {
+import { CardSubtitle, FormGroup, Input } from 'reactstrap';
+const ActivitySetting = ({ handleChange, value }) => {
     return (
         <>
             <CardSubtitle
@@ -9,12 +9,14 @@ const ActivitySetting = ({ handleChange }) => {
                 Activity
             </CardSubtitle>
 
-            <FormGroup onChange={handleChange}>
+            <FormGroup >
                 <Input
                     id="exampleSelect"
                     name="select"
                     type="select"
-                    defaultValue="0.25"
+                    //defaultValue="0.25"
+                    value={value}
+                    onChange={handleChange} 
                 >
                     <option value={0}>
                         Low

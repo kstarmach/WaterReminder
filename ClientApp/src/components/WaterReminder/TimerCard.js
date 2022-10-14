@@ -18,10 +18,11 @@ const TimerButton = ({ isRuning, handleIsRuning }) => {
 
 const TimerCard = ({ time, handleIsRuning, isRuning, handleReset }) => {
     return (
-        <Card color="light">
+        <Card className='border-white'>
             <CardBody>
-                <CardTitle tag="h5">
-                    Timer
+                <CardTitle className=' d-flex justify-content-between'>
+                    <p className='fs-4 fw-bolder'>Timer</p>
+                    <i className="bi bi-gear text-muted align-self-center" role="button"></i>
                 </CardTitle>
 
                 <CardText className='fs-1 fw-bolder'>

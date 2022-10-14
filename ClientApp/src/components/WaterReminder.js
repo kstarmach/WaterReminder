@@ -75,6 +75,13 @@ const WaterReminder = (props) => {
 
     return (
         <div>
+            <div className='d-flex justify-content-between '>
+                <p className='fs-1 fw-bolder'>Hi, Kamil! </p>
+                <p className='fs-1 fw-bolder' role='button' onClick={() => setShowSettings(!showSettings)}><i className='bi bi-sliders text-end'></i></p>
+            </div>
+
+
+
             <Row>
                 <Col md={6}>
                     <TimerCard time={time} isRuning={isRuning} handleIsRuning={() => setIsRuning(!isRuning)} handleReset={handleReset} />
@@ -85,7 +92,6 @@ const WaterReminder = (props) => {
                 </Col>
             </Row>
 
-            <Button color='info' className='mt-2' onClick={() => setShowSettings(!showSettings)}>Show modal</Button>
 
             <SettingsModal
                 toggle={() => setShowSettings(!showSettings)}

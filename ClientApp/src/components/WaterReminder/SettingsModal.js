@@ -21,9 +21,6 @@ const SettingsModal = ({ toggle, modal }) => {
         let newIntake = (weight * 0.033)
         setIntake((Number(newIntake) + Number(activity) + Number(gender)).toFixed(3))
         setCups(Math.round(intake / size))
-
-
-
     }, [size, weight, gender, activity, cups,  modal])
 
     return (
@@ -38,11 +35,11 @@ const SettingsModal = ({ toggle, modal }) => {
                                     Settings
                                 </CardTitle>
 
-                                <GenderSetting handleChange={(e) => setGender(e.target.value)} />
+                                <GenderSetting handleChange={(e) => setGender(e.target.value)}  gender={gender}/>
 
                                 <WeightSetting handleChange={(event) => setWeight(event.target.value)} weight={weight} />
 
-                                <ActivitySetting handleChange={(event) => setActivity(event.target.value)} />
+                                <ActivitySetting handleChange={(event) => setActivity(event.target.value)} value={activity}/>
 
                             </CardBody>
                         </Card>
@@ -54,7 +51,7 @@ const SettingsModal = ({ toggle, modal }) => {
                                 <CardTitle tag="h5">
                                     Preferences
                                 </CardTitle>
-                                <SizeSetting handleChange={(event) => setSize(event.target.value)} />
+                                <SizeSetting handleChange={(event) => setSize(event.target.value)} size={size}/>
 
                                 <CalculatorCard intake={intake} size={size} cups={cups} />
 
