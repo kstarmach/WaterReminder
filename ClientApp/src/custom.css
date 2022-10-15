@@ -13,3 +13,7 @@ code {
   border-color: #1861ac;
 }
 
+.card {
+  border-radius: 1em;
+  border-color: #fff;
+}

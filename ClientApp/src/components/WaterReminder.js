@@ -12,7 +12,7 @@ const WaterReminder = (props) => {
 
     const [showSettings, setShowSettings] = useState(false)
     const [modal, setModal] = useState(false)
-    const [counter, setCounter] = useState(1)
+    const [counter, setCounter] = useState(0)
     const [isRuning, setIsRuning] = useState(false)
     const [timer, setTimer] = useState(timeToAlert)
     const [time, setTime] = useState('20:00')
@@ -22,6 +22,8 @@ const WaterReminder = (props) => {
     //     getAll()
     //         .then(response => setCounter(response))
     // }, [])
+
+    const percentageToAlarm = 100 * (timer / timeToAlert)
 
     useEffect(() => {
         if (isRuning) {
@@ -74,7 +76,7 @@ const WaterReminder = (props) => {
     }, [timer, isRuning])
 
     return (
-        <div>
+        <div >
             <div className='d-flex justify-content-between '>
                 <p className='fs-1 fw-bolder'>Hi, Kamil! </p>
                 <p className='fs-1 fw-bolder' role='button' onClick={() => setShowSettings(!showSettings)}><i className='bi bi-sliders text-end'></i></p>
@@ -82,16 +84,29 @@ const WaterReminder = (props) => {
 
 
 
+
+
             <Row>
-                <Col md={6}>
-                    <TimerCard time={time} isRuning={isRuning} handleIsRuning={() => setIsRuning(!isRuning)} handleReset={handleReset} />
+                <Col md={3} className='  align-items-stretch'>
+                    <TimerCard
+                        time={time}
+                        isRuning={isRuning}
+                        handleIsRuning={() => setIsRuning(!isRuning)}
+                        handleReset={handleReset}
+                        percentageToAlarm={percentageToAlarm}                   
+                    />
                 </Col>
 
-                <Col md={6}>
-                    <WaterCard increase={increase} counter={counter} decrease={decrease} />
+                <Col md={4} className=' d-flex align-items-stretch'>
+                    <WaterCard
+                        increase={increase}
+                        counter={counter}
+                        decrease={decrease}
+                        
+                    />
                 </Col>
             </Row>
-
+     
 
             <SettingsModal
                 toggle={() => setShowSettings(!showSettings)}

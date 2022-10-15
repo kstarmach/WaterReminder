@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, CardText, Progress } from 'reactstrap';
 
 const TimerButton = ({ isRuning, handleIsRuning }) => {
 
@@ -16,16 +16,19 @@ const TimerButton = ({ isRuning, handleIsRuning }) => {
     )
 }
 
-const TimerCard = ({ time, handleIsRuning, isRuning, handleReset }) => {
+const TimerCard = ({ time, handleIsRuning, isRuning, handleReset, percentageToAlarm }) => {
     return (
-        <Card className='border-white'>
+        <Card >
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between'>
                     <p className='fs-4 fw-bolder'>Timer</p>
                     <i className="bi bi-gear text-muted align-self-center" role="button"></i>
                 </CardTitle>
-
+                <Progress
+                        value={percentageToAlarm}
+                    />
                 <CardText className='fs-1 fw-bolder'>
+               
                     {time}
                 </CardText>
 
