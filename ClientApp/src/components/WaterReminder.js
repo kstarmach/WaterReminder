@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Modal, Card, CardBody, CardTitle, CardText, CardSubtitle, ModalHeader, ModalBody, ModalFooter, Row, Col, Button, FormGroup, Label, Input } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 // import { getAll, increasePost, update } from '../services/waterreminder'
 import WaterCard from './WaterReminder/WaterCard';
 import TimerCard from './WaterReminder/TimerCard';
@@ -8,7 +8,8 @@ import SettingsModal from './WaterReminder/SettingsModal';
 
 
 const WaterReminder = (props) => {
-    const timeToAlert = 1200
+
+    const [timeToAlert, setTimeToAlert] = useState(1200)
 
     const [showSettings, setShowSettings] = useState(false)
     const [modal, setModal] = useState(false)
@@ -17,7 +18,7 @@ const WaterReminder = (props) => {
     const [timer, setTimer] = useState(timeToAlert)
     const [time, setTime] = useState('20:00')
     const tick = useRef()
-
+    const inteRef = useRef()
     // useEffect(() => {
     //     getAll()
     //         .then(response => setCounter(response))
@@ -63,7 +64,7 @@ const WaterReminder = (props) => {
 
     useEffect(() => {
         setTime(new Date(timer * 1000).toISOString().substring(14, 19))
-    }, [timer])
+    }, [timer, timeToAlert])
 
 
     useEffect(() => {
@@ -73,7 +74,48 @@ const WaterReminder = (props) => {
         else {
             document.title = "Drink your water!";
         }
-    }, [timer, isRuning])
+    }, [timer, isRuning, time])
+
+
+    const increaseTimeToAlert = () => {
+        let newTimeToAlert = timeToAlert;
+        if (inteRef.current) return;
+        if (timer <= 3600) {
+            inteRef.current = setInterval(() => {
+                newTimeToAlert += 60;
+
+                if (newTimeToAlert >= 3600) {
+                    return;
+                }
+                setTimeToAlert((prevTimer) => prevTimer + 60)
+                setTimer((prevTimer) => prevTimer + 60)
+            }, 100);
+        }
+    }
+
+    const decreaseTimeToAlert = () => {
+        let newTimeToAlert = timeToAlert;
+        if (inteRef.current) return;
+
+        if (timer > 120) {
+            inteRef.current = setInterval(() => {
+                newTimeToAlert -= 60;
+                if (newTimeToAlert < 60) {
+                    return;
+                }
+                setTimeToAlert((prevTimer) => prevTimer - 60)
+                setTimer((prevTimer) => prevTimer - 60)
+            }, 100);
+        }
+    }
+
+    const stopChangeTimeToAlert = () => {
+        if (inteRef.current) {
+            clearInterval(inteRef.current);
+            inteRef.current = null
+            setTimer(timeToAlert);
+        }
+    }
 
     return (
         <div >
@@ -82,19 +124,20 @@ const WaterReminder = (props) => {
                 <p className='fs-1 fw-bolder' role='button' onClick={() => setShowSettings(!showSettings)}><i className='bi bi-sliders text-end'></i></p>
             </div>
 
-
-
-
-
             <Row>
-                <Col md={3} className='  align-items-stretch'>
+                <Col md={3} className='align-items-stretch'>
                     <TimerCard
                         time={time}
                         isRuning={isRuning}
                         handleIsRuning={() => setIsRuning(!isRuning)}
                         handleReset={handleReset}
-                        percentageToAlarm={percentageToAlarm}                   
+                        percentageToAlarm={percentageToAlarm}
+                        increaseTime={increaseTimeToAlert}
+                        decreaseTime={decreaseTimeToAlert}
+                        stopChangeTime={stopChangeTimeToAlert}
                     />
+
+
                 </Col>
 
                 <Col md={4} className=' d-flex align-items-stretch'>
@@ -102,11 +145,11 @@ const WaterReminder = (props) => {
                         increase={increase}
                         counter={counter}
                         decrease={decrease}
-                        
+
                     />
                 </Col>
             </Row>
-     
+
 
             <SettingsModal
                 toggle={() => setShowSettings(!showSettings)}
@@ -118,7 +161,7 @@ const WaterReminder = (props) => {
                 toggle={() => setModal(!modal)}
                 modal={modal}
             />
-        </div>
+        </div >
     );
 }
 

@@ -16,20 +16,31 @@ const TimerButton = ({ isRuning, handleIsRuning }) => {
     )
 }
 
-const TimerCard = ({ time, handleIsRuning, isRuning, handleReset, percentageToAlarm }) => {
+const TimerCard = (
+    {
+        time,
+        handleIsRuning,
+        isRuning, handleReset,
+        percentageToAlarm,
+        increaseTime,
+        decreaseTime,
+        stopChangeTime
+    }) => {
     return (
-        <Card >
+        <Card>
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between'>
                     <p className='fs-4 fw-bolder'>Timer</p>
-                    <i className="bi bi-gear text-muted align-self-center" role="button"></i>
+                    <i className="bi bi-gear-fill text-muted mt-2" role="button"></i>
                 </CardTitle>
+
                 <Progress
-                        value={percentageToAlarm}
-                    />
-                <CardText className='fs-1 fw-bolder'>
-               
-                    {time}
+                    value={percentageToAlarm}
+                />
+                <CardText className=' text-center'>
+                    <i className="bi bi-dash-circle-dotted me-4 fs-3" role='button' onMouseDown={decreaseTime} onMouseUp={stopChangeTime}></i>
+                    <span className='fs-1 fw-bolder'>{time}</span>
+                    <i className="bi bi-plus-circle-dotted ms-4 fs-3" role='button' onMouseDown={increaseTime} onMouseUp={stopChangeTime}></i>
                 </CardText>
 
                 <TimerButton handleIsRuning={handleIsRuning} isRuning={isRuning} />

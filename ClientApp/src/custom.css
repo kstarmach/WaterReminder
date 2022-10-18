@@ -16,4 +16,5 @@ code {
 .card {
   border-radius: 1em;
   border-color: #fff;
+  margin-bottom: 1em;
 }
