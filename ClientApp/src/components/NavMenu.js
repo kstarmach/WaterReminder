@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarBrand } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 
@@ -24,22 +24,16 @@ export class NavMenu extends Component {
   render() {
     return (
       <header >
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3 " container dark color="dark" >
-          <NavbarBrand tag={Link} to="/">WaterReminder</NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-            <ul className="navbar-nav flex-grow ">
-              <NavItem>
-                <NavLink tag={Link} className="text-white-50" to="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-white-50" to="/fetch-data">Fetch data</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-white-50" to="/water-reminder">Water Reminder</NavLink>
-              </NavItem>
-            </ul>
-          </Collapse>
+        <Navbar
+          className=" mb-3 "
+          container="fluid"
+          dark
+          color="primary" >
+          <NavbarBrand tag={Link} to="/">
+            <img src="/media/water-glass.png" alt='Glass of water' height={30} width={30} className='me-2' />
+            <span className='fw-bolder'>WaterReminder</span>
+          </NavbarBrand>
+
         </Navbar>
       </header>
     );

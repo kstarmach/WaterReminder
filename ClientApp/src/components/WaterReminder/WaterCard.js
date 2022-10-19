@@ -1,4 +1,4 @@
-import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText,  Label } from 'reactstrap';
 
 const WaterCard = ({ increase, counter, decrease }) => {
     const cups = () => {
@@ -6,7 +6,7 @@ const WaterCard = ({ increase, counter, decrease }) => {
         for (let index = 0; index < counter; index++) {
             cup.push(
                 <i
-                    className="bi bi-droplet-fill fs-1 text-primary"
+                    className="bi bi-droplet-fill fs-3 text-primary"
                     onClick={decrease}
                     key={index}
                     role='button'
@@ -25,7 +25,7 @@ const WaterCard = ({ increase, counter, decrease }) => {
                 cup.push(
 
                     <i
-                        className="bi bi-droplet-fill fs-1 text-muted opacity-25"
+                        className="bi bi-droplet-fill fs-3 text-muted opacity-25"
                         role='button'
                         key={index}
                         onClick={increase}
@@ -50,10 +50,18 @@ const WaterCard = ({ increase, counter, decrease }) => {
                     <b>{cups()}</b>
                     {emptycups()}
 
-                    <i className="bi bi-plus " onClick={increase} role='button' ></i>
 
                 </CardText>
+                <div className='text-center'>
+                    <Label className='text-muted fw-bold'>Add drink</Label>
+                </div>
+                <div className='text-center'>
+                    <i
+                        role='button'
+                        onClick={increase}
+                        className="bi bi-plus-circle-fill  text-primary fs-2" ></i>
 
+                </div>
             </CardBody>
         </Card>
     )

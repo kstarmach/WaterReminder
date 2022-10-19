@@ -3,13 +3,14 @@ import { Row, Col } from 'reactstrap';
 // import { getAll, increasePost, update } from '../services/waterreminder'
 import WaterCard from './WaterReminder/WaterCard';
 import TimerCard from './WaterReminder/TimerCard';
+import ActivityCard from './WaterReminder/ActivityCard';
 import ReminderModal from './WaterReminder/ReminderModal';
 import SettingsModal from './WaterReminder/SettingsModal';
 
 
 const WaterReminder = (props) => {
     //Water Counter
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(3)
 
     //Timer
     const [isRuning, setIsRuning] = useState(false)
@@ -105,13 +106,21 @@ const WaterReminder = (props) => {
 
     return (
         <div >
-            <div className='d-flex justify-content-between '>
-                <p className='fs-1 fw-bolder'>Hi, Kamil! </p>
-                <p className='fs-1 fw-bolder' role='button' onClick={() => setShowSettings(!showSettings)}><i className='bi bi-sliders text-end'></i></p>
-            </div>
+            <Row>
+                <Col xs={3}></Col>
+                <Col>
+                    <div className='d-flex justify-content-between '>
+                        <p className='fs-1 fw-bolder'>Hi, Kamil! </p>
+                        {/* <p className='fs-1 fw-bolder' role='button' onClick={() => setShowSettings(!showSettings)}><i className='bi bi-sliders text-end'></i></p> */}
+                    </div>
+                </Col>
+                <Col></Col>
+
+            </Row>
 
             <Row>
-                <Col md={3} className='align-items-stretch'>
+                <Col xs={3}></Col>
+                <Col className='  align-items-stretch'>
                     <TimerCard
                         timer={timer}
                         isRuning={isRuning}
@@ -122,18 +131,25 @@ const WaterReminder = (props) => {
                         decreaseTime={decreaseTimeToAlert}
                         stopChangeTime={stopChangeTimeToAlert}
                     />
-
-
                 </Col>
 
-                <Col md={4} className=' d-flex align-items-stretch'>
+                <Col xs={3}></Col>
+
+
+            </Row>
+            <Row>
+                <Col xs={3}></Col>
+                <Col className=' align-items-stretch' >
+                    <ActivityCard />
+                </Col>
+                <Col className=' align-items-stretch' >
                     <WaterCard
                         increase={increase}
                         counter={counter}
                         decrease={decrease}
-
                     />
                 </Col>
+                <Col xs={3}></Col>
             </Row>
 
 

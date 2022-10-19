@@ -7,7 +7,11 @@ const AppRoutes = [
     element: <WaterReminder />
   },
   {
-    path: '/fetch-data',
+    path: '/stats',
+    element: <FetchData />
+  },
+  {
+    path: '/settings',
     element: <FetchData />
   }
 ];
