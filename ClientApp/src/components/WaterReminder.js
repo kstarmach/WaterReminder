@@ -8,24 +8,24 @@ import SettingsModal from './WaterReminder/SettingsModal';
 
 
 const WaterReminder = (props) => {
-
-    const [timeToAlert, setTimeToAlert] = useState(1200)
-
-    const [showSettings, setShowSettings] = useState(false)
-    const [modal, setModal] = useState(false)
+    //Water Counter
     const [counter, setCounter] = useState(0)
+
+    //Timer
     const [isRuning, setIsRuning] = useState(false)
+    const [timeToAlert, setTimeToAlert] = useState(1200)
     const [timer, setTimer] = useState(timeToAlert)
-    const [time, setTime] = useState('20:00')
     const tick = useRef()
     const inteRef = useRef()
-    // useEffect(() => {
-    //     getAll()
-    //         .then(response => setCounter(response))
-    // }, [])
 
-    const percentageToAlarm = 100 * (timer / timeToAlert)
+    //Show modals
+    const [modal, setModal] = useState(false)
+    const [showSettings, setShowSettings] = useState(false)
 
+
+    //////////////////
+    /// Timer Card ///
+    //////////////////
     useEffect(() => {
         if (isRuning) {
             tick.current = setInterval(() => {
@@ -47,40 +47,11 @@ const WaterReminder = (props) => {
         setModal(true)
     }
 
-    const increase = () => {
-        // increasePost().then(response => setCounter(response))
-        setCounter(counter + 1)
-        setIsRuning(true)
-        setTimer(timeToAlert)
-        setModal(false)
-    }
-
-    const decrease = () => {
-        // update(counter - 1).then(response => {
-        //     setCounter(response)
-        // })
-        setCounter(counter - 1)
-    }
-
-    useEffect(() => {
-        setTime(new Date(timer * 1000).toISOString().substring(14, 19))
-    }, [timer, timeToAlert])
-
-
-    useEffect(() => {
-        if (isRuning && timer > 0) {
-            document.title = time;
-        }
-        else {
-            document.title = "Drink your water!";
-        }
-    }, [timer, isRuning, time])
-
-
     const increaseTimeToAlert = () => {
         let newTimeToAlert = timeToAlert;
         if (inteRef.current) return;
         if (timer <= 3600) {
+            handleReset()
             inteRef.current = setInterval(() => {
                 newTimeToAlert += 60;
 
@@ -98,6 +69,7 @@ const WaterReminder = (props) => {
         if (inteRef.current) return;
 
         if (timer > 120) {
+            handleReset()
             inteRef.current = setInterval(() => {
                 newTimeToAlert -= 60;
                 if (newTimeToAlert < 60) {
@@ -113,9 +85,23 @@ const WaterReminder = (props) => {
         if (inteRef.current) {
             clearInterval(inteRef.current);
             inteRef.current = null
-            setTimer(timeToAlert);
         }
     }
+
+    //////////////////
+    /// Water Card ///
+    //////////////////
+    const increase = () => {
+        setCounter(counter + 1)
+        setIsRuning(true)
+        setTimer(timeToAlert)
+        setModal(false)
+    }
+
+    const decrease = () => {
+        setCounter(counter - 1)
+    }
+
 
     return (
         <div >
@@ -127,11 +113,11 @@ const WaterReminder = (props) => {
             <Row>
                 <Col md={3} className='align-items-stretch'>
                     <TimerCard
-                        time={time}
+                        timer={timer}
                         isRuning={isRuning}
+                        timeToAlert={timeToAlert}
                         handleIsRuning={() => setIsRuning(!isRuning)}
                         handleReset={handleReset}
-                        percentageToAlarm={percentageToAlarm}
                         increaseTime={increaseTimeToAlert}
                         decreaseTime={decreaseTimeToAlert}
                         stopChangeTime={stopChangeTimeToAlert}
