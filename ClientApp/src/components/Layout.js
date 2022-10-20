@@ -12,10 +12,10 @@ export class Layout extends Component {
         <NavMenu />
         <Container fluid>
           <Row>
-            <Col xs={1} >
+            <Col xs={0} xl={1} >
               <SideBar />
             </Col>
-            <Col className='me-5'>
+            <Col >
               {this.props.children}
             </Col>
           </Row>

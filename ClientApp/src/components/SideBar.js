@@ -7,6 +7,8 @@ const SideBar = prop => {
         <Nav
             card
             pills
+            // justified
+            fill
             tabs
             vertical
             className="fs-5"
@@ -17,7 +19,8 @@ const SideBar = prop => {
                     to="/"
                     activeclassname="active"
                 >
-                    <i className="bi bi-house-heart-fill me-1"></i> Home
+                    <i className="bi bi-house-heart-fill me-1"></i> 
+                    <span className="d-lg-none d-xl-block">Home</span>
                 </NavLink>
             </NavItem>
             <NavItem>
@@ -25,7 +28,8 @@ const SideBar = prop => {
                     tag={RRNavLink}
                     to="/stats"
                     activeclassname="active">
-                    <i className="bi bi-bar-chart-fill me-1"></i>Stats
+                    <i className="bi bi-bar-chart-fill me-1"></i>
+                    <span className="d-lg-none d-xl-block">Stats</span>
                 </NavLink>
             </NavItem>
             <NavItem>
@@ -34,7 +38,8 @@ const SideBar = prop => {
                     to="/settings"
                     activeclassname="active"
                 >
-                    <i className="bi bi-gear-fill me-1"></i>Settings
+                    <i className="bi bi-gear-fill me-1"></i>
+                    <span className="d-lg-none d-xl-block">Settings</span>
                 </NavLink>
             </NavItem>
         </Nav>

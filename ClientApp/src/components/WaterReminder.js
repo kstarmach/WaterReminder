@@ -107,20 +107,20 @@ const WaterReminder = (props) => {
     return (
         <div >
             <Row>
-                <Col xs={3}></Col>
-                <Col>
+                <Col xs={0} md={3}></Col>
+                <Col className='mt-3'>
                     <div className='d-flex justify-content-between '>
                         <p className='fs-1 fw-bolder'>Hi, Kamil! </p>
                         {/* <p className='fs-1 fw-bolder' role='button' onClick={() => setShowSettings(!showSettings)}><i className='bi bi-sliders text-end'></i></p> */}
                     </div>
                 </Col>
-                <Col></Col>
+                <Col ></Col>
 
             </Row>
 
             <Row>
-                <Col xs={3}></Col>
-                <Col className='  align-items-stretch'>
+                <Col ></Col>
+                <Col lg={12} xl={6} className='align-items-stretch'>
                     <TimerCard
                         timer={timer}
                         isRuning={isRuning}
@@ -133,23 +133,23 @@ const WaterReminder = (props) => {
                     />
                 </Col>
 
-                <Col xs={3}></Col>
+                <Col ></Col>
 
 
             </Row>
             <Row>
-                <Col xs={3}></Col>
-                <Col className=' align-items-stretch' >
+                <Col xl={3}></Col>
+                <Col lg={6} xl={3}>
                     <ActivityCard />
                 </Col>
-                <Col className=' align-items-stretch' >
+                <Col lg={6} xl={3}>
                     <WaterCard
                         increase={increase}
                         counter={counter}
                         decrease={decrease}
                     />
                 </Col>
-                <Col xs={3}></Col>
+                <Col xl={3}></Col>
             </Row>
 
 
