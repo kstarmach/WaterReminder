@@ -20,10 +20,10 @@ function SiteSetting(props) {
                 <FormGroup switch>
                     <Input
                         type="switch"
-                        checked={state}
-                        onClick={() => {
-                            setState(!state);
-                        }}
+                        // checked={state}
+                        // onClick={() => {
+                        //     setState(!state);
+                        // }}
                     />
                     <Label check>
                         Notifications</Label>
@@ -34,7 +34,7 @@ function SiteSetting(props) {
                         Autostart</Label>
                 </FormGroup>
                 <FormGroup switch disabled>
-                    <Input type="switch" checked disabled />
+                    <Input type="switch"  disabled />
                     <Label check>
                         Dark mode</Label>
                 </FormGroup>
