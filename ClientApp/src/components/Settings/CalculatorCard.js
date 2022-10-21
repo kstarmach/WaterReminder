@@ -1,4 +1,4 @@
-import {  Card, CardBody, CardTitle, CardText, CardSubtitle } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, CardSubtitle } from 'reactstrap';
 const CalculatorCard = ({ intake, size, cups }) => {
     const cupsQuantity = () => {
         let cup = []
@@ -9,27 +9,29 @@ const CalculatorCard = ({ intake, size, cups }) => {
     }
 
     return (
-        <Card color="info" >
+        <Card color="info" inverse>
             <CardBody>
-                <CardTitle tag="h5">
-                    Calculator
+                <CardTitle className=' d-flex justify-content-between '>
+                    <p className='fs-4 fw-bolder'>Calculator</p>
+                    <p className='text-muted align-self-center '></p>
                 </CardTitle>
+
                 <CardSubtitle
-                    className="mb-2 text-muted"
+                    className="mb-2 "
                     tag="h6"
                 >
-                    Daily amount
+                    Suggested daily amount
                 </CardSubtitle>
-                <CardText>
+                <CardText className='fs-2 fw-bolder'>
                     {intake} liters
                 </CardText>
                 <CardSubtitle
-                    className="mb-2 text-muted"
+                    className="mb-2 "
                     tag="h6"
                 >
-                    Daily cups of water ({size * 1000}ml)
+                    Suggested daily cups of water ({size * 1000}ml)
                 </CardSubtitle>
-                <CardText>
+                <CardText className='fs-2 fw-bolder'>
                     ({cups}) {cupsQuantity()}
                 </CardText>
             </CardBody>

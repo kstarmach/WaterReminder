@@ -56,7 +56,7 @@ const TimerCard = (
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between'>
                     <p className='fs-4 fw-bolder'>Timer</p>
-                    <i className="bi bi-gear-fill text-muted mt-2" role="button"></i>
+                    {/* <i className="bi bi-gear-fill text-muted mt-2" role="button"></i> */}
                 </CardTitle>
 
                 {/* <Progress

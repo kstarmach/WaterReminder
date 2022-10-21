@@ -73,7 +73,7 @@ const SizeSetting = ({ handleChange, size }) => {
                     </FormGroup>
                 </Col>
             </FormGroup>
-            <hr />
+
         </>
     )
 }

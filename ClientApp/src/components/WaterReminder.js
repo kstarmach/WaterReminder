@@ -5,7 +5,6 @@ import WaterCard from './WaterReminder/WaterCard';
 import TimerCard from './WaterReminder/TimerCard';
 import ActivityCard from './WaterReminder/ActivityCard';
 import ReminderModal from './WaterReminder/ReminderModal';
-import SettingsModal from './WaterReminder/SettingsModal';
 
 
 const WaterReminder = (props) => {
@@ -153,10 +152,6 @@ const WaterReminder = (props) => {
             </Row>
 
 
-            <SettingsModal
-                toggle={() => setShowSettings(!showSettings)}
-                modal={showSettings}
-            />
 
             <ReminderModal
                 increase={increase}

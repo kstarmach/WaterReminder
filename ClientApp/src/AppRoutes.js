@@ -1,6 +1,6 @@
 import { FetchData } from "./components/FetchData";
 import WaterReminder from "./components/WaterReminder";
-
+import Settings from "./components/Settings";
 const AppRoutes = [
   {
     index: true,
@@ -12,7 +12,7 @@ const AppRoutes = [
   },
   {
     path: '/settings',
-    element: <FetchData />
+    element: <Settings />
   }
 ];
 

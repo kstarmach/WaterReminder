@@ -1,5 +1,5 @@
 import { CardSubtitle, FormGroup, Input } from 'reactstrap';
-const ActivitySetting = ({ handleChange, value }) => {
+const ClimateSetting = ({ handleChange, value }) => {
     return (
         <>
             <CardSubtitle
@@ -14,29 +14,24 @@ const ActivitySetting = ({ handleChange, value }) => {
                     id="exampleSelect"
                     name="select"
                     type="select"
-                    //defaultValue="0.25"
-                    value={value}
-                    onChange={handleChange}
+                //defaultValue="0.25"
+                // value={value}
+                // onChange={handleChange}
                 >
                     <option value={0}>
-                        Sedentary
+                        Tropical
                     </option>
                     <option value={0.25}>
-                        Light Activity
+                        Temperate
                     </option>
                     <option value={0.5}>
-                        Modern Activity
+                        Cold
                     </option>
-                    <option value={1}>
-                        Very Active 
-                    </option>
-                    <option value={1}>
-                        Extremely Active
-                    </option>
+
                 </Input>
             </FormGroup>
         </>
     )
 }
 
-export default ActivitySetting
+export default ClimateSetting
