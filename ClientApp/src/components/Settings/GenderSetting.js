@@ -1,4 +1,4 @@
-import { Modal, Card, CardBody, CardTitle, CardText, CardSubtitle, ModalHeader, ModalBody, ModalFooter, Row, Col, Button, FormGroup, Label, Input } from 'reactstrap';
+import { CardSubtitle,  Col, FormGroup, Label, Input } from 'reactstrap';
 const GenderSetting = ({ handleChange, gender }) => {
     return (
         <>
@@ -12,7 +12,7 @@ const GenderSetting = ({ handleChange, gender }) => {
                 <Col sm={3}>
                     <FormGroup >
                         <Input
-                            checked={gender == 1}
+                            checked={gender === 1}
                             name="gender"
                             type="radio"
                             value={1}
@@ -27,7 +27,7 @@ const GenderSetting = ({ handleChange, gender }) => {
                 <Col sm={3}>
                     <FormGroup >
                         <Input
-                            checked={gender == 0}
+                            checked={gender === 0}
                             name="gender"
                             type="radio"
                             value={0}

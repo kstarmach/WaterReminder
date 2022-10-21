@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Button, Card, CardBody, CardTitle, CardText, Progress } from 'reactstrap';
+import { Button, Card, CardBody, CardTitle, CardText, Col, Row } from 'reactstrap';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const TimerButton = ({ isRuning, handleIsRuning }) => {
 
@@ -57,25 +59,40 @@ const TimerCard = (
                     <i className="bi bi-gear-fill text-muted mt-2" role="button"></i>
                 </CardTitle>
 
-                <Progress
+                {/* <Progress
                     value={timePercentage}
-                />
+                /> */}
+                <Row>
+
+                    <Col></Col>
+                    <Col lg={12} style={{ width: 300, height: 300 }} >
+                        <CircularProgressbarWithChildren
+                            value={timePercentage}
+                            valueStart={0}
+                            counterClockwise
+                            className='d-flex justify-content-center'
+                        >
+                            <CardText className=' text-center'>
+                                <i
+                                    className="bi bi-dash-circle-dotted me-4 fs-3"
+                                    role='button'
+                                    onMouseDown={decreaseTime}
+                                    onMouseUp={stopChangeTime}
+                                ></i>
+                                <span className='fs-1 fw-bolder'>{displayTime}</span>
+                                <i
+                                    className="bi bi-plus-circle-dotted ms-4 fs-3"
+                                    role='button'
+                                    onMouseDown={increaseTime}
+                                    onMouseUp={stopChangeTime}
+                                ></i>
+                            </CardText>
+                        </CircularProgressbarWithChildren>
+                    </Col>
+                    <Col></Col>
+                </Row>
+
                 <CardText className=' text-center'>
-                    <i
-                        className="bi bi-dash-circle-dotted me-4 fs-3"
-                        role='button'
-                        onMouseDown={decreaseTime}
-                        onMouseUp={stopChangeTime}
-                    ></i>
-                    <span className='fs-1 fw-bolder'>{displayTime}</span>
-                    <i
-                        className="bi bi-plus-circle-dotted ms-4 fs-3"
-                        role='button'
-                        onMouseDown={increaseTime}
-                        onMouseUp={stopChangeTime}
-                    ></i>
-                </CardText>
-                <div className=' text-center  '>
                     <Button
                         color="white"
                         className="ms-2"
@@ -86,10 +103,7 @@ const TimerCard = (
                     <TimerButton
                         handleIsRuning={handleIsRuning}
                         isRuning={isRuning} />
-
-
-                </div>
-
+                </CardText>
             </CardBody>
         </Card>
     )

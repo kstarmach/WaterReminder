@@ -1,4 +1,4 @@
-import { Modal, Card, CardBody, CardTitle, CardText, CardSubtitle, ModalHeader, ModalBody, ModalFooter, Row, Col, Button, FormGroup, Label, Input } from 'reactstrap';
+import { Modal, Card, CardBody, CardTitle,  ModalHeader, ModalBody, ModalFooter, Row, Col, Button } from 'reactstrap';
 import { useState, useEffect } from 'react';
 import CalculatorCard from "../Settings/CalculatorCard"
 import SizeSetting from "../Settings/SizeSetting"
@@ -21,7 +21,7 @@ const SettingsModal = ({ toggle, modal }) => {
         let newIntake = (weight * 0.033)
         setIntake((Number(newIntake) + Number(activity) + Number(gender)).toFixed(3))
         setCups(Math.round(intake / size))
-    }, [size, weight, gender, activity, cups,  modal])
+    }, [size, weight, gender, activity, cups,  modal, intake])
 
     return (
         <Modal isOpen={modal} toggle={toggle} size="xl" centered>

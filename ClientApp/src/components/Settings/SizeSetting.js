@@ -15,7 +15,7 @@ const SizeSetting = ({ handleChange, size }) => {
                 <Col sm={3}>
                     <FormGroup check>
                         <Input
-                            checked={size == 0.150}
+                            checked={size === 0.150}
                             name="radio3"
                             type="radio"
                             value={0.150}
@@ -30,7 +30,7 @@ const SizeSetting = ({ handleChange, size }) => {
                 <Col sm={3}>
                     <FormGroup check>
                         <Input
-                            checked={size == 0.200}
+                            checked={size === 0.200}
                             name="radio3"
                             type="radio"
                             value={0.200}
@@ -45,7 +45,7 @@ const SizeSetting = ({ handleChange, size }) => {
                 <Col sm={3}>
                     <FormGroup check>
                         <Input
-                            checked={size == 0.250}
+                            checked={size === 0.250}
                             name="radio3"
                             type="radio"
                             value={0.250}
@@ -60,7 +60,7 @@ const SizeSetting = ({ handleChange, size }) => {
                 <Col sm={3}>
                     <FormGroup check>
                         <Input
-                            checked={size == 0.300}
+                            checked={size === 0.300}
                             name="radio3"
                             type="radio"
                             value={0.300}
