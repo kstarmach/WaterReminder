@@ -18,3 +18,7 @@ code {
   border-color: #fff;
   margin-bottom: 1em;
 }
+
+.modal-content {
+  border-radius: 1em;
+}

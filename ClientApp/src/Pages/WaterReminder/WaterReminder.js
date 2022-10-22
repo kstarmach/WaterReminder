@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Row, Col } from 'reactstrap';
 // import { getAll, increasePost, update } from '../services/waterreminder'
-import WaterCard from './WaterReminder/WaterCard';
-import TimerCard from './WaterReminder/TimerCard';
-import ActivityCard from './WaterReminder/ActivityCard';
-import ReminderModal from './WaterReminder/ReminderModal';
+import WaterCard from './components/WaterCard';
+import TimerCard from './components/TimerCard';
+import ActivityCard from './components/ActivityCard';
+import ReminderModal from './components/ReminderModal';
 
 
 const WaterReminder = (props) => {
@@ -20,7 +20,7 @@ const WaterReminder = (props) => {
 
     //Show modals
     const [modal, setModal] = useState(false)
-    const [showSettings, setShowSettings] = useState(false)
+    // const [showSettings, setShowSettings] = useState(false)
 
 
     //////////////////

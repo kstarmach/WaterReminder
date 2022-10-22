@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, CardSubtitle } from 'reactstrap';
 
 function SiteSetting(props) {
-    const [state, setState] = useState(true);
+
 
     return (
         <>

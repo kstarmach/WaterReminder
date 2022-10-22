@@ -1,6 +1,6 @@
-import { FetchData } from "./components/FetchData";
-import WaterReminder from "./components/WaterReminder";
-import Settings from "./components/Settings";
+import { FetchData } from './Pages/Statistics/Statistics'
+import WaterReminder from "./Pages/WaterReminder/WaterReminder";
+import Settings from "./Pages/Settings/Settings";
 const AppRoutes = [
   {
     index: true,

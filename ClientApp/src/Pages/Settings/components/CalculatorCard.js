@@ -1,5 +1,14 @@
+import { useState, useEffect } from 'react';
 import { Card, CardBody, CardTitle, CardText, CardSubtitle } from 'reactstrap';
-const CalculatorCard = ({ intake, size, cups }) => {
+
+const CalculatorCard = () => {
+    const [intake, setIntake] = useState(2.500)
+    const [cups, setCups] = useState(10)
+    const [size, setSize] = useState(0.250)
+    const [gender, setGender] = useState(0)
+    const [weight, setWeight] = useState(50)
+    const [activity, setActivity] = useState(0.25)
+
     const cupsQuantity = () => {
         let cup = []
         for (let index = 0; index < cups; index++) {
@@ -7,6 +16,12 @@ const CalculatorCard = ({ intake, size, cups }) => {
         }
         return cup
     }
+
+    useEffect(() => {
+        let newIntake = (weight * 0.033)
+        setIntake((Number(newIntake) + Number(activity) + Number(gender)).toFixed(3))
+        setCups(Math.round(intake / size))
+    }, [size, weight, gender, activity, cups,  intake])
 
     return (
         <Card color="info" inverse>

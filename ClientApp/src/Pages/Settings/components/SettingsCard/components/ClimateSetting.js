@@ -6,7 +6,7 @@ const ClimateSetting = ({ handleChange, value }) => {
                 className="mb-2 text-muted"
                 tag="h6"
             >
-                Activity
+                Climtate
             </CardSubtitle>
 
             <FormGroup >

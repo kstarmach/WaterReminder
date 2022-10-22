@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button, Card, CardBody, CardTitle, CardText, Col, Row } from 'reactstrap';
-import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren, buildStyles  } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const TimerButton = ({ isRuning, handleIsRuning }) => {
@@ -8,14 +8,12 @@ const TimerButton = ({ isRuning, handleIsRuning }) => {
     if (!isRuning) {
         return (
             <Button onClick={handleIsRuning} color="white" >
-                {/* <i className="bi bi-stopwatch"></i> START */}
                 <i className="bi bi-play-circle-fill text-success fs-3" ></i>
             </Button>
         )
     }
     return (
         <Button onClick={handleIsRuning} color="white" >
-            {/* <i className="bi bi-stopwatch"></i> STOP */}
             <i className="bi bi-stop-circle-fill text-danger fs-3"></i>
         </Button>
     )
@@ -59,9 +57,6 @@ const TimerCard = (
                     {/* <i className="bi bi-gear-fill text-muted mt-2" role="button"></i> */}
                 </CardTitle>
 
-                {/* <Progress
-                    value={timePercentage}
-                /> */}
                 <Row>
 
                     <Col></Col>
@@ -71,6 +66,10 @@ const TimerCard = (
                             valueStart={0}
                             counterClockwise
                             className='d-flex justify-content-center'
+                            styles={buildStyles({
+                                backgroundColor: '#3e98c7',
+                                pathColor: `#0d6efd`,
+                            })}
                         >
                             <CardText className=' text-center'>
                                 <i

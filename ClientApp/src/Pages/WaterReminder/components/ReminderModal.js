@@ -2,7 +2,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const ReminderModal = ({ increase, toggle, modal }) => {
     return (
-        <Modal isOpen={modal} toggle={toggle} size="xl" centered>
+        <Modal isOpen={modal} toggle={toggle} size="xl" centered style={{ borderRadius: "10px !important" } }>
             <ModalHeader toggle={toggle}>Water Reminder</ModalHeader>
             <ModalBody>
                 <video controls autoPlay loop muted height="100%" width="100%">

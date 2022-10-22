@@ -9,8 +9,6 @@ const ActivityCard = () => {
                     <p className='text-muted align-self-center '></p>
                 </CardTitle>
 
-
-
                 <Table
                     borderless
                     hover
