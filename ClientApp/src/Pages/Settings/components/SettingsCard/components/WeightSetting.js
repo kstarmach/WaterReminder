@@ -1,4 +1,6 @@
 import { CardSubtitle, FormGroup, Label, Input } from 'reactstrap';
+import RangeSlider from 'react-bootstrap-range-slider';
+
 const WeightSetting = ({ handleChange, weight }) => {
     return (
         <>
@@ -10,10 +12,10 @@ const WeightSetting = ({ handleChange, weight }) => {
             </CardSubtitle>
 
             <FormGroup >
-                <Label for="exampleRange">
+                {/* <Label for="exampleRange">
                     {weight} kg
-                </Label>
-                <Input
+                </Label> */}
+                {/* <Input
                     id="exampleRange"
                     name="range"
                     type="range"
@@ -21,8 +23,19 @@ const WeightSetting = ({ handleChange, weight }) => {
                     onChange={handleChange}
                     min={25}
                     max={150}
-                />
+                /> */}
+                <RangeSlider
+                    value={weight}
+                    onChange={handleChange}
+                    min={25}
+                    max={150}
+                    tooltip='on'
 
+                    tooltipPlacement='top'
+                    tooltipLabel={v => `${v} kg`}
+                    //onChange={changeEvent => setValue(changeEvent.target.value)}
+                    className='mt-3'
+                />
             </FormGroup>
         </>
     )

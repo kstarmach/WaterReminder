@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { CardSubtitle, Col, FormGroup, Label, Input } from 'reactstrap';
-const SizeSetting = ({ handleChange, size }) => {
+
+const SizeSetting = () => {
+    const [size, setSize] = useState(0.250)    
     return (
         <>
             <CardSubtitle
@@ -19,7 +22,7 @@ const SizeSetting = ({ handleChange, size }) => {
                             name="radio3"
                             type="radio"
                             value={0.150}
-                            onChange={handleChange}
+                            onChange={() => setSize(0.150)}
                         />
                         {' '}
                         <Label check>
@@ -34,7 +37,7 @@ const SizeSetting = ({ handleChange, size }) => {
                             name="radio3"
                             type="radio"
                             value={0.200}
-                            onChange={handleChange}
+                            onChange={() => setSize(0.200)}
                         />
                         {' '}
                         <Label check>
@@ -49,7 +52,7 @@ const SizeSetting = ({ handleChange, size }) => {
                             name="radio3"
                             type="radio"
                             value={0.250}
-                            onChange={handleChange}
+                            onChange={() => setSize(0.250)}
                         />
                         {' '}
                         <Label check>
@@ -64,7 +67,7 @@ const SizeSetting = ({ handleChange, size }) => {
                             name="radio3"
                             type="radio"
                             value={0.300}
-                            onChange={handleChange}
+                            onChange={() => setSize(0.300)}
                         />
                         {' '}
                         <Label check>

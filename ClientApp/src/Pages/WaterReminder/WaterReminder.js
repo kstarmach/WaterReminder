@@ -5,11 +5,13 @@ import WaterCard from './components/WaterCard';
 import TimerCard from './components/TimerCard';
 import ActivityCard from './components/ActivityCard';
 import ReminderModal from './components/ReminderModal';
+import AddDrinkModal from './components/AddDrinkModal';
 
 
 const WaterReminder = (props) => {
     //Water Counter
-    const [counter, setCounter] = useState(3)
+    //const [counter, setCounter] = useState(0)
+    const [waterModal, setWaterModal] = useState(false);
 
     //Timer
     const [isRuning, setIsRuning] = useState(false)
@@ -19,7 +21,7 @@ const WaterReminder = (props) => {
     const inteRef = useRef()
 
     //Show modals
-    const [modal, setModal] = useState(false)
+    const [alertModal, setAlertModal] = useState(false)
     // const [showSettings, setShowSettings] = useState(false)
 
 
@@ -44,7 +46,7 @@ const WaterReminder = (props) => {
 
     if (timer <= 0) {
         handleReset()
-        setModal(true)
+        setAlertModal(true)
     }
 
     const increaseTimeToAlert = () => {
@@ -92,15 +94,25 @@ const WaterReminder = (props) => {
     /// Water Card ///
     //////////////////
     const increase = () => {
-        setCounter(counter + 1)
+        //setCounter(counter + 1)
         setIsRuning(true)
         setTimer(timeToAlert)
-        setModal(false)
+        setAlertModal(false)
+
     }
 
-    const decrease = () => {
-        setCounter(counter - 1)
+    const addDrink = () => {
+        setAlertModal(false)
+        setWaterModal(true)
     }
+
+    useEffect(() => {
+        increase()
+    }, [localStorage.getItem("water_count")])
+
+    // const decrease = () => {
+    //     setCounter(counter - 1)
+    // }
 
 
     return (
@@ -143,20 +155,23 @@ const WaterReminder = (props) => {
                 </Col>
                 <Col lg={6} xl={3}>
                     <WaterCard
-                        increase={increase}
-                        counter={counter}
-                        decrease={decrease}
+                        //increase={increase}
+                        //counter={counter}
+                        //decrease={decrease}
+                        toggle={() => setWaterModal(!waterModal)}
                     />
                 </Col>
                 <Col xl={3}></Col>
             </Row>
 
-
+            <AddDrinkModal
+                toggle={() => setWaterModal(!waterModal)}
+                modal={waterModal} />
 
             <ReminderModal
-                increase={increase}
-                toggle={() => setModal(!modal)}
-                modal={modal}
+                addDrink={addDrink}
+                toggle={() => setAlertModal(!alertModal)}
+                modal={alertModal}
             />
         </div >
     );

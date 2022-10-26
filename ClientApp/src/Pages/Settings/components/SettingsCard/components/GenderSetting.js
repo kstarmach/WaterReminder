@@ -1,5 +1,9 @@
-import { CardSubtitle,  Col, FormGroup, Label, Input } from 'reactstrap';
-const GenderSetting = ({ handleChange, gender }) => {
+import { useState } from 'react';
+import { CardSubtitle, Col, FormGroup, Label, Input } from 'reactstrap';
+
+const GenderSetting = () => {
+
+    const [gender, setGender] = useState(0)
     return (
         <>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -16,7 +20,7 @@ const GenderSetting = ({ handleChange, gender }) => {
                             name="gender"
                             type="radio"
                             value={1}
-                            onChange={handleChange}
+                            onChange={() => setGender(1)}
                         />
                         {' '}
                         <Label check>
@@ -31,7 +35,7 @@ const GenderSetting = ({ handleChange, gender }) => {
                             name="gender"
                             type="radio"
                             value={0}
-                            onChange={handleChange}
+                            onChange={() => setGender(0)}
                         />
                         {' '}
                         <Label check>

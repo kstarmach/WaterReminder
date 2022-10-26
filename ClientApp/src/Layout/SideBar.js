@@ -9,9 +9,6 @@ const SideBar = prop => {
             <Nav
                 card
                 pills
-                // justified
-                fill
-                tabs
                 vertical
                 className="fs-5"
             >
@@ -48,9 +45,6 @@ const SideBar = prop => {
             <Nav
                 card
                 pills
-                // justified
-                fill
-                tabs
                 vertical
                 className="fs-5 mb-3 d-none d-xl-block"
                 style={{

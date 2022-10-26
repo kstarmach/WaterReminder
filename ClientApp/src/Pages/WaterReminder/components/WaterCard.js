@@ -1,6 +1,22 @@
-import { Card, CardBody, CardTitle, CardText,  Label } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, Label } from 'reactstrap';
+import { useEffect, useState } from 'react';
 
-const WaterCard = ({ increase, counter, decrease }) => {
+const WaterCard = ({ increase, decrease, toggle }) => {
+    const [quantity, setQuantity] = useState(0)
+    const [counter, setCounter] = useState(0)
+
+    useEffect(() => {
+        setQuantity(localStorage.getItem("water_count") || 0)
+        setCounter(Math.floor(quantity / 250))
+
+    }, [localStorage.getItem("water_count")])
+
+    useEffect(() => {
+
+        setCounter(Math.floor(quantity / 250))
+
+    }, [quantity])
+
     const cups = () => {
         let cup = []
         for (let index = 0; index < counter; index++) {
@@ -44,7 +60,7 @@ const WaterCard = ({ increase, counter, decrease }) => {
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between '>
                     <p className='fs-4 fw-bolder'>Water Rate</p>
-                    <p className='text-muted align-self-center '><span className='fw-bold'>1.5 L/</span>2.5 L</p>
+                    <p className='text-muted align-self-center '><span className='fw-bold'>{quantity / 1000} L/</span>2.5 L</p>
                 </CardTitle>
                 <CardText className='fs-2 fw-bolder'>
                     <b>{cups()}</b>
@@ -58,7 +74,8 @@ const WaterCard = ({ increase, counter, decrease }) => {
                 <div className='text-center'>
                     <i
                         role='button'
-                        onClick={increase}
+                        onClick={toggle}
+                        //onClick={increase}
                         className="bi bi-plus-circle-fill  text-primary fs-2" ></i>
 
                 </div>

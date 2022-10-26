@@ -1,4 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
+import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';

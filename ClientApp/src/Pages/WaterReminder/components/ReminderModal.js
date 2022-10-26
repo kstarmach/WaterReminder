@@ -1,6 +1,6 @@
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const ReminderModal = ({ increase, toggle, modal }) => {
+const ReminderModal = ({ addDrink, toggle, modal }) => {
     return (
         <Modal isOpen={modal} toggle={toggle} size="xl" centered style={{ borderRadius: "10px !important" } }>
             <ModalHeader toggle={toggle}>Water Reminder</ModalHeader>
@@ -10,7 +10,7 @@ const ReminderModal = ({ increase, toggle, modal }) => {
                 </video>
             </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={increase}>
+                <Button color="primary" onClick={addDrink}>
                     <i className="bi bi-cup-straw"></i> Drinking
                 </Button>{' '}
                 <Button color="secondary" onClick={toggle}>

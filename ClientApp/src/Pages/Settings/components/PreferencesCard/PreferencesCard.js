@@ -7,7 +7,7 @@ import NotificationSound from './components/NotificationSound';
 
 
 const PreferencesCard = () => {
-    const [size, setSize] = useState(0.250)
+
 
     return (
         <Card className='pb-1'>
@@ -19,7 +19,7 @@ const PreferencesCard = () => {
                     <p className='text-muted align-self-center '></p>
                 </CardTitle>
 
-                <SizeSetting handleChange={(event) => setSize(event.target.value)} size={size} />
+                <SizeSetting  />
 
                 <NotificationSound />
 

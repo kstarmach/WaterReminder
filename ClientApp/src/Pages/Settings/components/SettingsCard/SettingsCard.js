@@ -7,9 +7,11 @@ import ClimateSetting from './components/ClimateSetting';
 
 
 const SettingsCard = () => {
-    const [gender, setGender] = useState(0)
+ 
     const [weight, setWeight] = useState(50)
     const [activity, setActivity] = useState(0.25)
+
+
 
     return (
         <Card className='pb-1'>
@@ -21,7 +23,7 @@ const SettingsCard = () => {
                 </CardTitle>
 
 
-                <GenderSetting handleChange={(e) => setGender(e.target.value)} gender={gender} />
+                <GenderSetting />
 
                 <WeightSetting handleChange={(event) => setWeight(event.target.value)} weight={weight} />
 

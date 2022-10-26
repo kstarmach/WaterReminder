@@ -1,6 +1,54 @@
+import { useEffect, useState } from 'react';
 import { Card, CardBody, CardTitle, Badge, Table } from 'reactstrap';
 
+const Icon = ({ label }) => {
+    if (label === 'Water') {
+        return (
+            <i className="bi bi-droplet-fill me-1"></i>
+        )
+    }
+    if (label === 'Tea' || label === 'Coffee') {
+        return (
+            <i className="bi bi-cup-hot-fill me-1"></i>
+        )
+    }
+    if (label === 'Soda') {
+        return (
+            <i className="bi bi-cup-straw me-1"></i>
+        )
+    }
+}
+
+const Activity = ({ drink, time, quantity }) => {
+    return (
+        <tr>
+            <td>
+                <span className='fw-bold'>
+                    <Icon label={drink} />
+                    {drink}
+                </span>
+            </td>
+            <td>
+                <span className='text-muted fs-6'>
+                    {time}
+                </span>
+            </td>
+            <td>
+                <Badge pill>
+                    {quantity} ml
+                </Badge>
+            </td>
+        </tr>
+    )
+}
+
 const ActivityCard = () => {
+    const [history, setHistory] = useState(JSON.parse(localStorage.getItem("drink_array") || "[]"))
+
+    useEffect(() => {
+        setHistory(JSON.parse(localStorage.getItem("drink_array") || "[]"))
+    }, [localStorage.getItem("drink_array")])
+
     return (
         <Card >
             <CardBody>
@@ -15,64 +63,10 @@ const ActivityCard = () => {
                     size="sm"
                 >
                     <tbody>
-                        <tr>
-                            <td>
-                                <span className='fw-bold'><i className="bi bi-droplet-fill me-1"></i>Water</span>
-                            </td>
-                            <td>
-                                <span className='text-muted fs-6'>01:18 PM</span>
-                            </td>
-                            <td>
-                                <Badge pill>
-                                    330 ml
-                                </Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span className='fw-bold'><i className="bi bi-cup-hot-fill me-1"></i>Tea</span>
-                            </td>
-                            <td>
-                                <span className='text-muted fs-6'>02:10 PM</span>
+                        {history.map((obj, index) =>
+                            <Activity drink={obj.drink} time={obj.time} quantity={obj.quantity} key={index} />
+                        )}
 
-                            </td>
-                            <td>
-                                <Badge pill>
-                                    200 ml
-                                </Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span className='fw-bold'><i className="bi bi-cup-hot-fill me-1"></i>Coffee</span>
-
-                            </td>
-                            <td>
-                                <span className='text-muted fs-6'>03:40 PM</span>
-
-                            </td>
-                            <td>
-                                <Badge pill>
-                                    250 ml
-                                </Badge>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span className='fw-bold'><i className="bi bi-cup-straw me-1"></i>Pepsi</span>
-
-                            </td>
-                            <td>
-                                <span className='text-muted fs-6'>03:40 PM</span>
-
-                            </td>
-                            <td>
-                                <Badge pill>
-                                    250 ml
-                                </Badge>
-                            </td>
-                        </tr>
-                        
                     </tbody>
                 </Table>
             </CardBody>
