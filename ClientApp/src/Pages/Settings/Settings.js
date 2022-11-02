@@ -1,8 +1,7 @@
 import { Row, Col, Container } from 'reactstrap';
 
 import PreferencesCard from './components/PreferencesCard/PreferencesCard';
-import SettingsCard from './components/SettingsCard/SettingsCard';
-import CalculatorCard from "./components/CalculatorCard"
+
 
 const Settings = () => {
 
@@ -10,15 +9,12 @@ const Settings = () => {
         <Container>
             <Row className='justify-content-center mt-4'>
 
-                <Col sm={12} xl={4} >
-                    <SettingsCard />
+                <Col sm={12} xl={5} >
+         
 
                     <PreferencesCard />
                 </Col>
 
-                <Col sm={12} xl={4}>
-                    <CalculatorCard />
-                </Col>
 
             </Row>
         </Container>

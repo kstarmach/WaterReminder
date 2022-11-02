@@ -47,7 +47,7 @@ const AddDrinkModal = ({ modal, toggle }) => {
     const saveDrink = () => {
         const newitems = JSON.parse(localStorage.getItem("drink_array") || "[]");
         var d = new Date();
-        newitems.push({
+        newitems.unshift({
             'drink': drink,
             'quantity': value,
             'time': d.toLocaleTimeString()

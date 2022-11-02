@@ -1,14 +1,19 @@
-import { FetchData } from './Pages/Statistics/Statistics'
+import Statistics from './Pages/Statistics/Statistics'
 import WaterReminder from "./Pages/WaterReminder/WaterReminder";
 import Settings from "./Pages/Settings/Settings";
+import Profile from './Pages/Profile/Profile';
 const AppRoutes = [
   {
     index: true,
     element: <WaterReminder />
   },
   {
+    path: '/calculator',
+    element: <Profile />
+  },
+  {
     path: '/stats',
-    element: <FetchData />
+    element: <Statistics />
   },
   {
     path: '/settings',

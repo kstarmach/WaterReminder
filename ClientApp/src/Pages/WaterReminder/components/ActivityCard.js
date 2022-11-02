@@ -50,25 +50,32 @@ const ActivityCard = () => {
     }, [localStorage.getItem("drink_array")])
 
     return (
-        <Card >
+        <Card className='h-100'>
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between '>
-                    <p className='fs-4 fw-bolder'>Latest drinking activity</p>
+                    <p className='fs-4 fw-bolder'>Drink log</p>
                     <p className='text-muted align-self-center '></p>
                 </CardTitle>
+                <div style={{
+                    maxHeight: '330px',
+                    overflowY: 'auto'
+                }}>
+                    <Table
+                        borderless
+                        hover
+                        size="sm"
+                        responsive
 
-                <Table
-                    borderless
-                    hover
-                    size="sm"
-                >
-                    <tbody>
-                        {history.map((obj, index) =>
-                            <Activity drink={obj.drink} time={obj.time} quantity={obj.quantity} key={index} />
-                        )}
+                        //height="200"
+                    >
+                        <tbody>
+                            {history.map((obj, index) =>
+                                <Activity drink={obj.drink} time={obj.time} quantity={obj.quantity} key={index} />
+                            )}
 
-                    </tbody>
-                </Table>
+                        </tbody>
+                    </Table>
+                </div>
             </CardBody>
         </Card>
 

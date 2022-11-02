@@ -7,7 +7,7 @@ const SideBar = prop => {
         <>
 
             <Nav
-                card
+                //card
                 pills
                 vertical
                 className="fs-5"
@@ -20,6 +20,16 @@ const SideBar = prop => {
                     >
                         <i className="bi bi-house-heart-fill me-1"></i>
                         Home
+                    </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink
+                        tag={RRNavLink}
+                        to="/calculator"
+                        activeclassname="active"
+                    >
+                        <i className="bi bi-moisture me-1"></i>
+                        Profile
                     </NavLink>
                 </NavItem>
                 <NavItem>

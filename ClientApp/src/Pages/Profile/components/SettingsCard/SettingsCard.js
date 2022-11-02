@@ -18,7 +18,7 @@ const SettingsCard = () => {
 
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between '>
-                    <p className='fs-4 fw-bolder'>Settings</p>
+                    <p className='fs-4 fw-bolder'>Profile</p>
                     <p className='text-muted align-self-center '></p>
                 </CardTitle>
 

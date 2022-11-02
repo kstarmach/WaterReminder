@@ -1,12 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container, Button, Label } from 'reactstrap';
+import { Card, CardBody, CardTitle } from 'reactstrap';
 // import { getAll, increasePost, update } from '../services/waterreminder'
 import WaterCard from './components/WaterCard';
 import TimerCard from './components/TimerCard';
 import ActivityCard from './components/ActivityCard';
 import ReminderModal from './components/ReminderModal';
 import AddDrinkModal from './components/AddDrinkModal';
+// import DailyGoalsCard from '../Statistics/components/DailyGoalsCard';
 
+import {
+    CircularProgressbar,
+    CircularProgressbarWithChildren,
+    buildStyles
+} from "react-circular-progressbar";
 
 const WaterReminder = (props) => {
     //Water Counter
@@ -116,22 +123,66 @@ const WaterReminder = (props) => {
 
 
     return (
-        <div >
+        <Container className='mt-3'>
             <Row>
-                <Col xs={0} md={3}></Col>
-                <Col className='mt-3'>
-                    <div className='d-flex justify-content-between '>
-                        <p className='fs-1 fw-bolder'>Hi, Kamil! </p>
-                        {/* <p className='fs-1 fw-bolder' role='button' onClick={() => setShowSettings(!showSettings)}><i className='bi bi-sliders text-end'></i></p> */}
-                    </div>
+
+                <Col >
+
+                    <p className='fs-1 fw-bolder'>Hi, Kamil! </p>
+
                 </Col>
-                <Col ></Col>
+
 
             </Row>
 
             <Row>
-                <Col ></Col>
-                <Col lg={12} xl={6} className='align-items-stretch'>
+                <Col >
+                    <Card  color='info'>
+                        <CardBody>
+
+                            <Row>
+
+                                <Col>
+
+                                    <p className='fs-4 '>Its's <b>Sunny Day </b> today!</p>
+                                    <p className='fs-2 fw-bolder' ><i className="bi bi-sun-fill me-3" style={{color:'yellow'}}></i>26 °C</p>
+                                </Col>
+
+                            </Row>
+
+                        </CardBody>
+                    </Card>
+
+                    <Card style={{ backgroundColor: '#3F42AE', borderColor: '#3F42AE' }}>
+                        <CardBody>
+
+                            <CardTitle>
+                                <p className='fs-4 fw-bold text-white'>Your Intake Goal</p>
+                                <p className='fs-3 fw-bolder text-white'>1200 ml / 3500 ml</p>
+                            </CardTitle>
+                        </CardBody>
+                    </Card>
+
+                    <div className='h-100' >
+                        <div className='text-center fs-4 fw-bolder'>
+                            <Label className='text-muted fw-bold'>Add new drink</Label>
+                        </div>
+                        <div className='text-center fs-1 ' >
+                            <i
+                                role='button'
+                                onClick={() => setWaterModal(!waterModal)}
+                                //onClick={increase}
+                                className="bi bi-plus-circle-fill   fs-1"
+                                style={{ color: 'orange' }}
+                            ></i>
+
+                        </div>
+                    </div>
+
+
+
+                </Col>
+                <Col lg={12} xl={6} >
                     <TimerCard
                         timer={timer}
                         isRuning={isRuning}
@@ -142,27 +193,22 @@ const WaterReminder = (props) => {
                         decreaseTime={decreaseTimeToAlert}
                         stopChangeTime={stopChangeTimeToAlert}
                     />
+
+
                 </Col>
-
-                <Col ></Col>
-
-
-            </Row>
-            <Row>
-                <Col xl={3}></Col>
-                <Col lg={6} xl={3}>
+                <Col>
                     <ActivityCard />
+                    {/* <WaterCard toggle={() => setWaterModal(!waterModal)} /> */}
                 </Col>
-                <Col lg={6} xl={3}>
-                    <WaterCard
-                        //increase={increase}
-                        //counter={counter}
-                        //decrease={decrease}
-                        toggle={() => setWaterModal(!waterModal)}
-                    />
-                </Col>
-                <Col xl={3}></Col>
             </Row>
+
+            {/* <Row>
+
+                <Col>
+                    <DailyGoalsCard />
+
+                </Col>
+            </Row> */}
 
             <AddDrinkModal
                 toggle={() => setWaterModal(!waterModal)}
@@ -173,7 +219,7 @@ const WaterReminder = (props) => {
                 toggle={() => setAlertModal(!alertModal)}
                 modal={alertModal}
             />
-        </div >
+        </Container >
     );
 }
 
