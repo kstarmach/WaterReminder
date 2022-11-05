@@ -50,7 +50,7 @@ const ActivityCard = () => {
     }, [localStorage.getItem("drink_array")])
 
     return (
-        <Card className='h-100'>
+        <Card className='h-100 shadow'>
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between '>
                     <p className='fs-4 fw-bolder'>Drink log</p>

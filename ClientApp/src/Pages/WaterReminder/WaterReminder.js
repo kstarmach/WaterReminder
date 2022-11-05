@@ -1,19 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Row, Col, Container, Button, Label } from 'reactstrap';
-import { Card, CardBody, CardTitle } from 'reactstrap';
+import { Row, Col, Container, Label } from 'reactstrap';
+
 // import { getAll, increasePost, update } from '../services/waterreminder'
 import WaterCard from './components/WaterCard';
 import TimerCard from './components/TimerCard';
 import ActivityCard from './components/ActivityCard';
 import ReminderModal from './components/ReminderModal';
 import AddDrinkModal from './components/AddDrinkModal';
-// import DailyGoalsCard from '../Statistics/components/DailyGoalsCard';
+import WeatherCard from './components/WeatherCard';
 
-import {
-    CircularProgressbar,
-    CircularProgressbarWithChildren,
-    buildStyles
-} from "react-circular-progressbar";
 
 const WaterReminder = (props) => {
     //Water Counter
@@ -137,31 +132,9 @@ const WaterReminder = (props) => {
 
             <Row>
                 <Col >
-                    <Card  color='info'>
-                        <CardBody>
 
-                            <Row>
-
-                                <Col>
-
-                                    <p className='fs-4 '>Its's <b>Sunny Day </b> today!</p>
-                                    <p className='fs-2 fw-bolder' ><i className="bi bi-sun-fill me-3" style={{color:'yellow'}}></i>26 °C</p>
-                                </Col>
-
-                            </Row>
-
-                        </CardBody>
-                    </Card>
-
-                    <Card style={{ backgroundColor: '#3F42AE', borderColor: '#3F42AE' }}>
-                        <CardBody>
-
-                            <CardTitle>
-                                <p className='fs-4 fw-bold text-white'>Your Intake Goal</p>
-                                <p className='fs-3 fw-bolder text-white'>1200 ml / 3500 ml</p>
-                            </CardTitle>
-                        </CardBody>
-                    </Card>
+                    <WeatherCard />
+                    <WaterCard />
 
                     <div className='h-100' >
                         <div className='text-center fs-4 fw-bolder'>

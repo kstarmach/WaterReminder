@@ -9,7 +9,7 @@ const PreferencesCard = () => {
 
 
     return (
-        <Card className='pb-1'>
+        <Card className='pb-1 shadow'>
 
             <CardBody>
 

@@ -24,7 +24,7 @@ const CalculatorCard = () => {
     }, [size, weight, gender, activity, cups,  intake])
 
     return (
-        <Card color="info" inverse>
+        <Card color="info " inverse>
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between '>
                     <p className='fs-4 fw-bolder'>Calculator</p>

@@ -14,7 +14,7 @@ const SettingsCard = () => {
 
 
     return (
-        <Card className='pb-1'>
+        <Card className='pb-1 shadow   '>
 
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between '>
