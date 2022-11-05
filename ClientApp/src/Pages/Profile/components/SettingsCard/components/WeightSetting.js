@@ -17,8 +17,8 @@ const WeightSetting = ({ handleChange, weight }) => {
                     </CardText>
 
                 </Col>
-                <Col align='right' className='mt-3 fw-semibold ' style={{color:'orangered'}}>
-                    <span>
+                <Col align='right' className='mt-3 fw-semibold ' style={{ color: 'orangered' }}>
+                    <span role={'button'}>
                         56 KG
                         <i className="bi bi-chevron-right"></i>
                     </span>
@@ -37,8 +37,8 @@ const WeightSetting = ({ handleChange, weight }) => {
                     </CardText>
 
                 </Col>
-                <Col align='right' className='mt-3 fw-semibold ' style={{color:'orangered'}}>
-                    <span>
+                <Col align='right' className='mt-3 fw-semibold ' style={{ color: 'orangered' }} >
+                    <span role={'button'}>
                         177 CM
                         <i className="bi bi-chevron-right"></i>
                     </span>

@@ -21,7 +21,7 @@ const PregnancySetting = () => {
                 <Col align='right'>
                     <Form>
                         <FormGroup switch className='mt-3 form-check-reverse'>
-                            <Input type="switch" role="switch" style={{ transform: "scale(1.8)" }} />
+                            <Input type="switch" role="switch" style={{ transform: "scale(1.5)" }} />
                             <Label check></Label>
                         </FormGroup>
                     </Form>
@@ -45,7 +45,7 @@ const PregnancySetting = () => {
                 <Col align='right'>
                     <Form>
                         <FormGroup switch className='mt-3 form-check-reverse'>
-                            <Input type="switch" role="switch" style={{ transform: "scale(1.8)" }} />
+                            <Input type="switch" role="switch" style={{ transform: "scale(1.5)" }} />
                             <Label check></Label>
                         </FormGroup>
                     </Form>

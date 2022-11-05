@@ -26,10 +26,13 @@ const SettingsCard = () => {
                 <GenderSetting gender={gender} handleGender={() => setGender(!gender)} />
 
                 <WeightSetting handleChange={(event) => setWeight(event.target.value)} weight={weight} />
-                <hr className="border border-1 opacity-50" />
+
 
                 {gender ? '' :
-                    <PregnancySetting />
+                    <>
+                        <hr className="border border-1 opacity-50" />
+                        <PregnancySetting />
+                    </>
                 }
                 <CardText tag="h6" className="fw-semibold">
                     Additional factors

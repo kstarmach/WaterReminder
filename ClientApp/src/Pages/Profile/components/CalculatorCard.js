@@ -28,9 +28,9 @@ const CalculatorCard = () => {
 
         <Card color="info " inverse>
             <CardBody>
-                <CardTitle className=' d-flex justify-content-between '>
-                    <p className='fs-4 fw-bolder'>Calculator</p>
-                    <p className='text-muted align-self-center '></p>
+                <CardTitle tag="h5" className='fw-bolder mb-3'>
+                    Calculator
+
                 </CardTitle>
 
                 <Container>
@@ -51,7 +51,7 @@ const CalculatorCard = () => {
                                 Tap to customize
                             </CardText>
                         </Col>
-                        <Col  >
+                        <Col align='right' role={'button'}>
                             <CardText className='fs-2 fw-bolder'>
                                 <Badge pill color='primary'>
 

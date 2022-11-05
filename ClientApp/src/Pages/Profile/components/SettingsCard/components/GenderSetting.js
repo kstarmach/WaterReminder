@@ -25,8 +25,8 @@ const GenderSetting = ({ gender, handleGender }) => {
 
             <Row>
                 <Col >
-                    <Card color='primary'>
-                        <CardBody>
+                    <Card style={{ borderColor: '#90c0f5', backgroundColor: '#90c0f5', color: 'white' }}>
+                        <CardBody className=' fs-3 fw-bolder'>
                             <FormGroup >
                                 <Input
                                     checked={gender === true}
@@ -36,7 +36,7 @@ const GenderSetting = ({ gender, handleGender }) => {
                                     onChange={handleGender}
                                 />
                                 {' '}
-                                <Label check>
+                                <Label check >
                                     <i className="bi bi-gender-male me-1"></i>
                                     Male
                                 </Label>
@@ -45,20 +45,25 @@ const GenderSetting = ({ gender, handleGender }) => {
                     </Card>
                 </Col>
                 <Col>
-                    <FormGroup >
-                        <Input
-                            checked={gender === false}
-                            name="gender"
-                            type="radio"
-                            value={false}
-                            onChange={handleGender}
-                        />
-                        {' '}
-                        <Label check>
-                            <i className="bi bi-gender-female me-1"></i>
-                            Female
-                        </Label>
-                    </FormGroup>
+                    <Card style={{ borderColor: '#e27e9e', backgroundColor: '#e27e9e', color: 'white' }}>
+                        <CardBody className=' fs-3 fw-bolder'>
+                            <FormGroup >
+                                <Input
+
+                                    checked={gender === false}
+                                    name="gender"
+                                    type="radio"
+                                    value={false}
+                                    onChange={handleGender}
+                                />
+                                {' '}
+                                <Label check>
+                                    <i className="bi bi-gender-female me-1"></i>
+                                    Female
+                                </Label>
+                            </FormGroup>
+                        </CardBody>
+                    </Card>
                 </Col>
             </Row>
 

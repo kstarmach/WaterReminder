@@ -36,6 +36,7 @@ const WeatherCard = () => {
         if (temp < 15) {
             return 'info'
         }
+        return ''
     }
 
     return (
