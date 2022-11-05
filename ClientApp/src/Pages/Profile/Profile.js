@@ -9,7 +9,7 @@ const Profile = () => {
         <Container>
             <Row className='justify-content-center mt-4'>
 
-                <Col sm={12} xl={4} >
+                <Col sm={12} xl={5} >
                     <SettingsCard />
 
                 </Col>

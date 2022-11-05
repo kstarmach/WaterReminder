@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Card, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardBody, CardTitle, Spinner } from 'reactstrap';
 import axios from "axios"
 
 
@@ -43,7 +43,13 @@ const WeatherCard = () => {
             <CardBody>
 
                 <CardTitle>
-                    {Object.keys(weather).length === 0 ? '' :
+                    {Object.keys(weather).length === 0 ?
+                        <>
+                            <Spinner color="primary">
+                                Loading...
+                            </Spinner>
+                        </>
+                        :
                         <>
                             <p className='fs-4 '>It is <b>{weather.weather[0].main} </b> today!</p>
                             <p className='fs-2 fw-bolder' > <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} alt={"weather"} />{temp} °C</p>

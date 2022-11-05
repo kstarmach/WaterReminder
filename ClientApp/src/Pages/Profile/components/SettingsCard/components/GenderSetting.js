@@ -1,49 +1,67 @@
 import { useState } from 'react';
-import { CardSubtitle, Col, FormGroup, Label, Input } from 'reactstrap';
+import { CardSubtitle, Col, Row, FormGroup, Label, Input, CardText, Card, CardBody } from 'reactstrap';
 
-const GenderSetting = () => {
+const GenderSetting = ({ gender, handleGender }) => {
 
-    const [gender, setGender] = useState(0)
+    //const [gender, setGender] = useState(0)
     return (
         <>
-            <CardSubtitle className="mb-2 text-muted" tag="h6">
+
+            <CardText className="fw-semibold mt-3 " tag='h6'>
                 Gender
-            </CardSubtitle>
-            <FormGroup
-                row
-                tag="fieldset"
+            </CardText>
+
+            {/* <CardSubtitle
+                className="mb-2 text-muted"
+                tag="h6"
             >
-                <Col sm={3}>
-                    <FormGroup >
-                        <Input
-                            checked={gender === 1}
-                            name="gender"
-                            type="radio"
-                            value={1}
-                            onChange={() => setGender(1)}
-                        />
-                        {' '}
-                        <Label check>
-                            Male
-                        </Label>
-                    </FormGroup>
+                Other things that directly affect your water needs
+            </CardSubtitle>
+
+            <CardSubtitle className="fw-semibold mb-3">
+                <i className="bi bi-gender-ambiguous me-2"></i>
+                Gender
+            </CardSubtitle> */}
+
+            <Row>
+                <Col >
+                    <Card color='primary'>
+                        <CardBody>
+                            <FormGroup >
+                                <Input
+                                    checked={gender === true}
+                                    name="gender"
+                                    type="radio"
+                                    value={true}
+                                    onChange={handleGender}
+                                />
+                                {' '}
+                                <Label check>
+                                    <i className="bi bi-gender-male me-1"></i>
+                                    Male
+                                </Label>
+                            </FormGroup>
+                        </CardBody>
+                    </Card>
                 </Col>
-                <Col sm={3}>
+                <Col>
                     <FormGroup >
                         <Input
-                            checked={gender === 0}
+                            checked={gender === false}
                             name="gender"
                             type="radio"
-                            value={0}
-                            onChange={() => setGender(0)}
+                            value={false}
+                            onChange={handleGender}
                         />
                         {' '}
                         <Label check>
+                            <i className="bi bi-gender-female me-1"></i>
                             Female
                         </Label>
                     </FormGroup>
                 </Col>
-            </FormGroup>
+            </Row>
+
         </>
 
     )

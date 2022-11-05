@@ -52,9 +52,8 @@ const ActivityCard = () => {
     return (
         <Card className='h-100 shadow'>
             <CardBody>
-                <CardTitle className=' d-flex justify-content-between '>
-                    <p className='fs-4 fw-bolder'>Drink log</p>
-                    <p className='text-muted align-self-center '></p>
+                <CardTitle tag="h5" className='fw-bolder mb-3'>
+                    Drink log
                 </CardTitle>
                 <div style={{
                     maxHeight: '330px',
@@ -66,7 +65,7 @@ const ActivityCard = () => {
                         size="sm"
                         responsive
 
-                        //height="200"
+                    //height="200"
                     >
                         <tbody>
                             {history.map((obj, index) =>

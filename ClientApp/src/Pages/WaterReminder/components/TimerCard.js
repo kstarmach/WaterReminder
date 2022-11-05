@@ -52,9 +52,8 @@ const TimerCard = (
     return (
         <Card className='h-100 shadow'>
             <CardBody>
-                <CardTitle >
-                    <p className='fs-4 fw-bolder'>Timer</p>
-
+                <CardTitle tag="h5" className='fw-bolder mb-3'>
+                    Timer
                 </CardTitle>
                 <Container >
 

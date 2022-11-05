@@ -1,27 +1,26 @@
-import { CardSubtitle, FormGroup, Input, Col, Row } from 'reactstrap';
+import { CardSubtitle, FormGroup, Input, Col, Row, CardText, Container } from 'reactstrap';
 const ActivitySetting = ({ handleChange, value }) => {
     return (
-        <>
+        <Container>
+
             <Row>
-                
-                <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                >
-                    <i className="bi bi-bicycle me-1"></i> 
-                     Activity level
-                </CardSubtitle>
-
-                <Col>
-
-
-                    <span className='fw-bold fs-4 text-warning'>
-                       
-                        +500 ml
+                <Col xs={1} className='d-flex justify-content-center'>
+                    <span className='fs-2 fw-semibold text-warning '>
+                        <i className="bi bi-bicycle  "></i>
                     </span>
                 </Col>
                 <Col>
-                    <FormGroup >
+                    <CardText className="fw-semibold mt-2 mb-0" tag='h6'>
+
+                        Activity level
+                    </CardText>
+
+                    <CardText className='fw-bold  text-warning' tag='h6'>
+                        +500 ml
+                    </CardText>
+                </Col>
+                <Col  >
+                    <FormGroup className='mt-2'>
                         <Input
                             id="exampleSelect"
                             name="select"
@@ -49,7 +48,8 @@ const ActivitySetting = ({ handleChange, value }) => {
                     </FormGroup>
                 </Col>
             </Row>
-        </>
+        </Container>
+
     )
 }
 

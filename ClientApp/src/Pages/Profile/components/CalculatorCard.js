@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Card, CardBody, CardTitle, CardText, CardSubtitle } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, CardSubtitle, Badge, Row, Col, Container } from 'reactstrap';
 
 const CalculatorCard = () => {
-    const [intake, setIntake] = useState(2.500)
+    const [intake, setIntake] = useState(3.600)
     const [cups, setCups] = useState(10)
     const [size, setSize] = useState(0.250)
     const [gender, setGender] = useState(0)
@@ -21,9 +21,11 @@ const CalculatorCard = () => {
         let newIntake = (weight * 0.033)
         setIntake((Number(newIntake) + Number(activity) + Number(gender)).toFixed(3))
         setCups(Math.round(intake / size))
-    }, [size, weight, gender, activity, cups,  intake])
+    }, [size, weight, gender, activity, cups, intake])
 
     return (
+
+
         <Card color="info " inverse>
             <CardBody>
                 <CardTitle className=' d-flex justify-content-between '>
@@ -31,15 +33,38 @@ const CalculatorCard = () => {
                     <p className='text-muted align-self-center '></p>
                 </CardTitle>
 
-                <CardSubtitle
-                    className="mb-2 "
-                    tag="h6"
-                >
-                    Suggested daily amount
-                </CardSubtitle>
-                <CardText className='fs-2 fw-bolder'>
-                    {intake} liters
-                </CardText>
+                <Container>
+
+                    <Row>
+                        <Col xs={1} className='d-flex justify-content-center'>
+                            <span className='fs-2 fw-semibold  mt-1'>
+                                <i className="bi bi-bullseye "></i>
+                            </span>
+                        </Col>
+                        <Col>
+                            <CardText className="fw-semibold mt-2 mb-0" tag='h6'>
+
+                                Daily goal
+                            </CardText>
+
+                            <CardText className='fw-bold' tag='h6'>
+                                Tap to customize
+                            </CardText>
+                        </Col>
+                        <Col  >
+                            <CardText className='fs-2 fw-bolder'>
+                                <Badge pill color='primary'>
+
+                                    {intake} ML
+                                    <i className="bi bi-chevron-right"></i>
+                                </Badge>
+                            </CardText>
+                        </Col>
+                    </Row>
+                </Container>
+
+                <br />
+
                 <CardSubtitle
                     className="mb-2 "
                     tag="h6"
