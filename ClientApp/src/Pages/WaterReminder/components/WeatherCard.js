@@ -27,20 +27,38 @@ const WeatherCard = () => {
 
 
     const getBackground = () => {
-        if (temp > 25) {
-            return 'warning'
+        if (temp > 27) {
+            return '#f40000'
         }
-        if (temp > 15 && temp < 25) {
-            return 'success'
+        if (temp > 21) {
+            return '#f09649'
         }
-        if (temp < 15) {
-            return 'info'
+        if (temp > 16) {
+            return '#fac312'
+        }
+        if (temp > 10) {
+            return '#96d254'
+        }
+        if (temp > 4) {
+            return '#30b053'
+        }
+        if (temp > -1) {
+            return '#3796fd'
+        }
+        if (temp > -7) {
+            return '#3f23fd'
+        }
+        if (temp > -12) {
+            return '#6e2ba0'
+        }
+        if (temp > -18) {
+            return '#940097'
         }
         return ''
     }
 
     return (
-        <Card color={getBackground()}>
+        <Card style={{ backgroundColor: `${getBackground()}`, borderColor: `${getBackground()}` }}>
             <CardBody>
 
                 <CardTitle>

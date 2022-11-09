@@ -3,7 +3,6 @@ import { CardSubtitle, Col, Row, FormGroup, Label, Input, CardText, Card, CardBo
 
 const GenderSetting = ({ gender, handleGender }) => {
 
-    //const [gender, setGender] = useState(0)
     return (
         <>
 
@@ -11,17 +10,7 @@ const GenderSetting = ({ gender, handleGender }) => {
                 Gender
             </CardText>
 
-            {/* <CardSubtitle
-                className="mb-2 text-muted"
-                tag="h6"
-            >
-                Other things that directly affect your water needs
-            </CardSubtitle>
 
-            <CardSubtitle className="fw-semibold mb-3">
-                <i className="bi bi-gender-ambiguous me-2"></i>
-                Gender
-            </CardSubtitle> */}
 
             <Row>
                 <Col >
