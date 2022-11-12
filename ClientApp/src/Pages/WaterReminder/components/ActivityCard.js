@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Card, CardBody, CardTitle, Badge, Table } from 'reactstrap';
+import { getAll } from '../../../services/drinklog';
+
 
 const Icon = ({ label }) => {
     if (label === 'Water') {
@@ -45,9 +47,15 @@ const Activity = ({ drink, time, quantity }) => {
 const ActivityCard = () => {
     const [history, setHistory] = useState(JSON.parse(localStorage.getItem("drink_array") || "[]"))
 
+    // useEffect(() => {
+    //     setHistory(JSON.parse(localStorage.getItem("drink_array") || "[]"))
+    // }, [localStorage.getItem("drink_array")])
+
     useEffect(() => {
-        setHistory(JSON.parse(localStorage.getItem("drink_array") || "[]"))
-    }, [localStorage.getItem("drink_array")])
+        getAll().then(result => {
+            console.log(result);
+        })
+    }, [])
 
     return (
         <Card className='h-100 shadow'>
